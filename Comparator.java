@@ -20,6 +20,20 @@ public String toString(){
     return rollno +" "+marks+" " +name;
 }
 }
+class CustomComparator implements java.util.Comparator<Student>{
+    public int compare(Student ob1,Student ob2){
+        if(ob1.marks != ob2.marks){
+            return ob2.marks - ob1.rollno;
+        }
+        return ob1.rollno - ob2.rollno;
+    }
+}
+class NameComparator implements java.util.Comparator<Student>{
+    @Override
+    public int compare(Student ob1,Student ob2){
+        return ob1.name.compareTo(ob2.name);
+    }
+}
 class Comparator{
     public static void main(String[] args) {
         ArrayList<Integer> i = new ArrayList<>();
@@ -40,6 +54,11 @@ class Comparator{
 
         st.sort(null);
         System.out.println(st);
+        st.sort(new CustomComparator());
+        System.out.println(st);
+        st.sort(new NameComparator());
+        System.out.println(st);
+
         
 
 
